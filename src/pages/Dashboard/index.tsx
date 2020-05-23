@@ -89,10 +89,14 @@ const Dashboard: React.FC = () => {
                 <tr key={transaction.id}>
                   <td className="title">{transaction.title}</td>
                   {transaction.type === 'income' && (
-                    <td className="income">{transaction.value}</td>
+                    <td className="income">{formatValue(transaction.value)}</td>
                   )}
                   {transaction.type === 'outcome' && (
-                    <td className="outcome">{transaction.value}</td>
+                    <td className="outcome">
+                      -
+{' '}
+{formatValue(transaction.value)}
+                    </td>
                   )}
                   <td>{transaction.category.title}</td>
                   <td>{transaction.created_at}</td>
